@@ -1,14 +1,13 @@
 package clientemens;
 
-import java.io.BufferedReader;
+
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.net.ssl.SSLSocketFactory;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,13 +17,23 @@ import javax.swing.JOptionPane;
 public class ClienteMens {
 
     public static void main(String[] args) throws IOException {
+        
+
+        System.setProperty("javax.net.ssl.trustStore", "clientTrustedCerts.jks");
+        System.setProperty("javax.net.ssl.trustStorePassword", "clientpass");
 
         try {
             System.out.println("Creando socket cliente");
+            SSLSocketFactory SOFactory=(SSLSocketFactory)SSLSocketFactory.getDefault();
             //creación del socket pasando la dirección IP y el puerto del servidor
-            Socket clienteSocket = new Socket("localhost", 5555);
+           // Socket clienteSocket = new Socket("localhost", 5555);
+                       
+            Socket clienteSocket = SOFactory.createSocket("localhost", 5555);
             System.out.println("Estableciendo la conexion");
 
+            /*cambiamos los flujos originales por estes dos porque los originales daban problemas al leer 
+            y estes si lo hacen a la perfección */
+            
             //Creamos flujo de salida cara el server
             PrintStream salida = new PrintStream(clienteSocket.getOutputStream());
             //Creamos flujo de entrada desde el server
