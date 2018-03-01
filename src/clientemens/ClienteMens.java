@@ -28,8 +28,7 @@ public class ClienteMens {
             //creación del socket pasando la dirección IP y el puerto del servidor
            // Socket clienteSocket = new Socket("localhost", 5555);
                        
-            Socket clienteSocket = SOFactory.createSocket("localhost", 5555);
-            System.out.println("Estableciendo la conexion");
+//`poijhohuo
 
             /*cambiamos los flujos originales por estes dos porque los originales daban problemas al leer 
             y estes si lo hacen a la perfección */
@@ -63,7 +62,7 @@ public class ClienteMens {
                     }
             }
  
-          
+          //ñkhvgkhvjlhv
             
             //Cerramos flujos de entra y salida
             salida.close();
