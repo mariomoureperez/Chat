@@ -30,7 +30,7 @@ public class ClienteMens {
                        
             Socket clienteSocket = SOFactory.createSocket("localhost", 5555);
             System.out.println("Estableciendo la conexion");
-
+//agadfafas
             /*cambiamos los flujos originales por estes dos porque los originales daban problemas al leer 
             y estes si lo hacen a la perfección */
             
